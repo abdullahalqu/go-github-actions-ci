@@ -25,6 +25,6 @@
 4. Or build the application and run the binary:
     ```bash
     go build -o app-name .
-    ./app-name
+    ./app-name    
     ```
 
