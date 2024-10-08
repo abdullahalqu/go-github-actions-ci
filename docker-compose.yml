@@ -1,0 +1,6 @@
+services:
+  build:
+    build:  .
+    volumes:
+      - .:/app
+    command: go build -o main.go .
