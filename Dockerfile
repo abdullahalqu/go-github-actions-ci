@@ -9,4 +9,4 @@ RUN go mod download && go mod verify
 
 COPY . .
 
-# RUN go build -o main.go .
+RUN go build -o main .

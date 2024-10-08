@@ -15,25 +15,25 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v4
-      - 
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      -
-        name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - 
-        name: Build and push
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: |
-            devabdullahq/golang-docker-ci:latest
-            devabdullahq/golang-docker-ci:${{ github.sha}}
-          cache-from: devabdullahq/golang-docker-ci:latest
-          cache-to: type=inline
+    #   - 
+    #     name: Set up Docker Buildx
+    #     uses: docker/setup-buildx-action@v3
+    #   -
+    #     name: Login to Docker Hub
+    #     uses: docker/login-action@v3
+    #     with:
+    #       username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #       password: ${{ secrets.DOCKERHUB_TOKEN }}
+    #   - 
+    #     name: Build and push
+    #     uses: docker/build-push-action@v6
+    #     with:
+    #       push: true
+    #       tags: |
+    #         devabdullahq/golang-docker-ci:latest
+    #         devabdullahq/golang-docker-ci:${{ github.sha}}
+    #       cache-from: devabdullahq/golang-docker-ci:latest
+    #       cache-to: type=inline
       - 
         name: Test
-        run: docker compose run build
+        run: docker build .
